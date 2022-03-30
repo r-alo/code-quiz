@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./css/reset.css"> -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Code Quiz Challenge</title>
+</head>
+<body>
+
+    <!-- Header with highscores and timer -->
+    
+    <header>
+
+        <h4 id="highscores"><a href="highscores.html" class="">View Highscores</a></h4>
+        <h4 id="timer">Time: 70</h4>
+        
+    </header>
+
+    <!-- Container with questions and Controls-->
+    <section>
+        <div class="container">
+            <div id="introText">
+            <h3>Coding quiz challenge</h3>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
+            </div>
+        <div id="questionContainer" class="hide">
+            <div id="question">Question</div>
+            <div id="answerButtons" class="buttonGrid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+        </div>
+
+    
+        <div class="controls">
+            <button id="startButton" class="startButton btn">Start</button>
+            <button id="nextButton" class="nextButton btn hide">Next</button>
+            <button id="btnHighscores" class="btnHighscores btn hide">Highscores</button>
+        </div>
+        </div>
+
+
+
+    <!-- Script -->
+    <script src="./js/script.js"></script>
+
+</body>
+</html>

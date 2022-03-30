@@ -1,0 +1,112 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --neutralBckg: 198;
+    --wrongBckg: 0;
+    --correctBckg: 140;
+}
+
+body{
+    --hue: var(--neutralBckg);
+    background-color: hsl(var(--hue), 100%, 26%);
+}
+
+body.correct {
+    --hue: var(--correctBckg);
+}
+
+body.wrong {
+    --hue: var(--wrongBckg);
+}
+
+header {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items:center;
+}
+
+section{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+
+.container {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    /* justify-content: center;
+    align-items:center; */
+    width: 800px;
+    max-width: 80%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.introText{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#question{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonGrid{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn{
+    --hue: var(--neutralBckg);
+    border: 1px solid hsl(var(--hue), 100%, 30%);
+    background-color: hsl(var(--hue), 100%, 50%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: white;
+    outline: none;
+}
+
+.btn:hover{
+    border-color: black ;
+}
+
+.btn.correct {
+    --hue: var(--correctBckg);
+    color: black;
+}
+
+.btn.wrong {
+    --hue: var(--wrongBckg);
+}
+
+.startButton, .nextButton, .btnHighscores {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide{
+    display: none;
+}
