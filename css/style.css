@@ -84,6 +84,9 @@ section{
 
 .btn:hover{
     border-color: black ;
+    cursor: pointer;
+    transform: scale(1.02);
+    transform: transform 100ms;
 }
 
 .btn.correct {

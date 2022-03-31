@@ -12,6 +12,7 @@ let randomQuestion, currentQuestion
 
 // Event Listeners for buttons
 startButton.addEventListener('click', startGame)
+startButton.addEventListener('click', timerFun)
 nextButton.addEventListener('click', () => {
     currentQuestion++
     nextQuestion()
@@ -43,6 +44,7 @@ function showQuestion(question) {
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
+
         button.addEventListener('click', selectAnswer)
         answerEl.appendChild(button)
     });
@@ -65,24 +67,45 @@ function selectAnswer(e) {
     Array.from(answerEl.children).forEach(button => {
         setStatus(button, button.dataset.correct)
     })
-
     //Stop the function if all questions in array have been answered
     if (randomQuestion.length > currentQuestion + 1) {
     nextBtn.classList.remove('hide')
     } else {
-        hsBtn.classList.remove('hide')
-    }
+        hsBtn.classList.remove('hide'),
+        questionsContainerEl.classList.add('hide')
+    };
 }
+
+var rightAnswers = 0
+
+
 
  // Setting status to correct or wrong
 function setStatus(element, correct) {
     clearStatus(element)
     if (correct) {
         element.classList.add('correct')
-    } else {
+        var rightChoice = () => {
+            rightAnswers += 10;
+            element.removeEventListener('click', rightChoice)
+        }
+        element.addEventListener('click', rightChoice)
+
+        //Wrong answer decreases timer
+    } else if (!correct) {
         element.classList.add('wrong')
+        var wrongChoice = () => {
+            sec -= 10;
+            rightAnswers = 0;
+            element.removeEventListener('click', wrongChoice)
+        }
+        element.addEventListener('click', wrongChoice);
+    } else {
+        nextQuestion();
     }
 }
+
+
  //Clear status for next question
 function clearStatus(element) {
     element.classList.remove('correct')
@@ -90,6 +113,18 @@ function clearStatus(element) {
 }
 
 
+//Timer 
+var sec = 70;
+function timerFun() {
+        var timer = setInterval(function () {
+            sec--;
+            document.getElementById('timer').innerHTML = '00:' + sec;
+            if (sec < 0) {
+                clearInterval(timer);
+                alert("Time is up!");
+            }
+        }, 1000);
+}
 
 // Questions array
 const questions = [
