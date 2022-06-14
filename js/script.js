@@ -1,26 +1,31 @@
+//  Created with help of tutorials Reference:https://www.youtube.com/watch?v=riDzcEQbX6k
+
+
 // Constants to connect to HTML IDs
-const startBtn = document.getElementById('startButton')
-const introTxt = document.getElementById('introText')
-const nextBtn = document.getElementById('nextButton')
-const hsBtn = document.getElementById('btnHighscores')
-const questionsContainerEl = document.getElementById('questionContainer')
+const startBtn = document.getElementById('start-button')
+const introTxt = document.getElementById('intro-text')
+const nextBtn = document.getElementById('next-button')
+const hsBtn = document.getElementById('btn-highscores')
+const questionsContainerEl = document.getElementById('question-container')
 const questionEl = document.getElementById('question')
-const answerEl = document.getElementById('answerButtons')
+const answerEl = document.getElementById('answer-buttons')
+const bodyEl = document.querySelector('body')
+const allScores = document.getElementById('all-scores')
 
 // Variable for questions array
-let randomQuestion, currentQuestion
+let randomQuestion, currentQuestion, highScores, initials
+
 
 // Event Listeners for buttons
-startButton.addEventListener('click', startGame)
-startButton.addEventListener('click', timerFun)
-nextButton.addEventListener('click', () => {
+startBtn.addEventListener('click', startGame)
+startBtn.addEventListener('click', timerFun)
+nextBtn.addEventListener('click', () => {
     currentQuestion++
     nextQuestion()
 })
 
 // Start game function that hides Start button and text
 function startGame() {
-    console.log('Started')
     introTxt.classList.add('hide')
     startBtn.classList.add('hide')
     randomQuestion = questions.sort(() => Math.random() - .5)
@@ -31,9 +36,14 @@ function startGame() {
 
 // Functions to show next questions and randomly show them
 function nextQuestion(params) {
+    // check to see if we've reached the end of the quiz
+    // if (currentQuestion === 4){
+    //     console.log('No more questions');
+    // }
+    console.log(currentQuestion);
     resetState()
     showQuestion(randomQuestion[currentQuestion])
-}
+} 
 
 function showQuestion(question) {
     questionEl.innerText = question.question
@@ -44,7 +54,6 @@ function showQuestion(question) {
         if (answer.correct) {
             button.dataset.correct = answer.correct
         }
-
         button.addEventListener('click', selectAnswer)
         answerEl.appendChild(button)
     });
@@ -72,12 +81,12 @@ function selectAnswer(e) {
     nextBtn.classList.remove('hide')
     } else {
         hsBtn.classList.remove('hide'),
-        questionsContainerEl.classList.add('hide')
+        questionsContainerEl.classList.add('hide'),
+        bodyEl.classList.remove('wrong'),
+        bodyEl.classList.remove('correct'),
+        allScores.classList.remove('hide')
     };
 }
-
-var rightAnswers = 0
-
 
 
  // Setting status to correct or wrong
@@ -96,7 +105,6 @@ function setStatus(element, correct) {
         element.classList.add('wrong')
         var wrongChoice = () => {
             sec -= 10;
-            rightAnswers = 0;
             element.removeEventListener('click', wrongChoice)
         }
         element.addEventListener('click', wrongChoice);
@@ -113,18 +121,30 @@ function clearStatus(element) {
 }
 
 
+    // Created w instructor, TAs and tutor
 //Timer 
 var sec = 70;
 function timerFun() {
         var timer = setInterval(function () {
+            if (currentQuestion === 4){
+                clearInterval(timer);
+                clearStatus(document.body);
+            }
             sec--;
             document.getElementById('timer').innerHTML = '00:' + sec;
-            if (sec < 0) {
+            if (sec === 0) {
                 clearInterval(timer);
-                alert("Time is up!");
+                allScores.classList.remove('hide');
             }
         }, 1000);
+        return
 }
+
+
+
+function endGame(){
+
+};
 
 // Questions array
 const questions = [

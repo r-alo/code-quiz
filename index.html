@@ -12,38 +12,46 @@
 
     <!-- Header with highscores and timer -->
     
-    <header>
+        <header>
 
-        <h4 id="highscores"><a href="highscores.html" class="">View Highscores</a></h4>
-        <h4 id="timer">Time: 70</h4>
+            <h4 id="highscores"><a href="highscores.html" class="">View Highscores</a></h4>
+            <h4 id="timer">Time: 70</h4>
+            
+        </header>
+
+        <!-- Container with questions and Controls-->
+        <section>
+            <div class="container">
+                <div id="intro-text">
+                <h3>Coding quiz challenge</h3>
+                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
+                </div>
+            <div id="question-container" class="hide">
+                <div id="question">Question</div>
+                <div id="answer-buttons" class="button-grid">
+                    <button class="btn">Answer 1</button>
+                    <button class="btn">Answer 2</button>
+                    <button class="btn">Answer 3</button>
+                    <button class="btn">Answer 4</button>
+                </div>
+            </div>
+
         
-    </header>
-
-    <!-- Container with questions and Controls-->
-    <section>
-        <div class="container">
-            <div id="introText">
-            <h3>Coding quiz challenge</h3>
-            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</p>
+                <div class="controls">
+                    <button id="start-button" class="start-button btn">Start</button>
+                    <button id="next-button" class="next-button btn hide">Next</button>
+                    <button id="btn-highscores" class="btn-highscores btn hide">Highscores</button>
+                </div>
             </div>
-        <div id="questionContainer" class="hide">
-            <div id="question">Question</div>
-            <div id="answerButtons" class="buttonGrid">
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 2</button>
-                <button class="btn">Answer 3</button>
-                <button class="btn">Answer 4</button>
+
+            <div id="all-scores" class="hide">
+                <form>
+                    <p>Enter your initials to save your score</p>
+                    <input id="initials" type="text">
+                    <button id="save-name">Save</button>
+                </form>
             </div>
-        </div>
-
-    
-        <div class="controls">
-            <button id="startButton" class="startButton btn">Start</button>
-            <button id="nextButton" class="nextButton btn hide">Next</button>
-            <button id="btnHighscores" class="btnHighscores btn hide">Highscores</button>
-        </div>
-        </div>
-
+        </section>
 
 
     <!-- Script -->

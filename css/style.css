@@ -1,4 +1,4 @@
-*, *::before, *::after {
+* {
     box-sizing: border-box;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -14,13 +14,13 @@ body{
     background-color: hsl(var(--hue), 100%, 26%);
 }
 
-body.correct {
+/* body.correct {
     --hue: var(--correctBckg);
 }
 
 body.wrong {
     --hue: var(--wrongBckg);
-}
+} */
 
 header {
     display: flex;
@@ -43,6 +43,7 @@ section{
     display: flex;
     flex-direction: column;
     width: 100vw;
+    height: auto;
     /* justify-content: center;
     align-items:center; */
     width: 800px;
@@ -53,7 +54,7 @@ section{
     box-shadow: 0 0 10px 2px;
 }
 
-.introText{
+.intro-text{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +66,7 @@ section{
     justify-content: center;
 }
 
-.buttonGrid{
+.button-grid{
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 10px;
@@ -98,7 +99,7 @@ section{
     --hue: var(--wrongBckg);
 }
 
-.startButton, .nextButton, .btnHighscores {
+.start-button, .next-button, .btn-highscores {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;

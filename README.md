@@ -12,4 +12,15 @@ Results:
 <!-- ![Code Quiz Challenge]() -->
 
 
+### References:
+ <details><summary> Videos </summary>
+
+- [Build A Quiz App With JavaScript](https://www.youtube.com/watch?v=riDzcEQbX6k)
+
+</details>
+
+<br>
+<br>
+<br>
+<br>
 PD: application can't save highscores yet*
